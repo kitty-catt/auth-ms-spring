@@ -72,7 +72,7 @@ For more details on installation, check [this](https://appsody.dev/docs/installi
 
 ## Implementation Details
 
-We created a new springboot project using appsody as follows.
+We created a new spring boot project using appsody as follows.
 
 ```
 appsody repo add kabanero https://github.com/kabanero-io/kabanero-stack-hub/releases/download/0.6.5/kabanero-stack-hub-index.yaml
