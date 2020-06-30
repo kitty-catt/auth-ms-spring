@@ -2,12 +2,16 @@ package application.auth;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import application.auth.models.About;
+import application.auth.services.AboutService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -17,6 +21,19 @@ import io.swagger.annotations.ApiOperation;
 public class AuthController {
     
     private static Logger logger =  LoggerFactory.getLogger(AuthController.class);
+    
+    @Autowired
+    private AboutService aboutService;
+    
+    /**
+	 * @return about auth
+	 */
+	@ApiOperation(value = "About Auth")
+	@GetMapping(path = "/about", produces = "application/json")
+	@ResponseBody 
+    public About aboutAuth() {
+    	return aboutService.getInfo();
+    }
 
     /**
      * Handle auth header
