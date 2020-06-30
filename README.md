@@ -164,6 +164,49 @@ Originally, in the [storefront](https://github.com/ibm-garage-ref-storefront/ref
 
 ![Auth Swagger UI](static/swagger_auth.png?raw=true)
 
+- We also enabled sonarqube as part of the application.
+
+To run the sonarqube as a docker container, run the below command.
+
+```
+docker run -d --name sonarqube -p 9000:9000 sonarqube
+```
+
+To test the application, run the below command.
+
+```
+./mvnw sonar:sonar -Dsonar.login=admin -Dsonar.password=admin
+```
+
+Now, access `http://localhost:9000/`, login using the credentials `admin/admin`, and then you will see something like below.
+
+![Auth SonarQube](static/auth_sonarqube.png?raw=true)
+
+- We included contract testing as part of our application too.
+
+To run Pact as a docker container, run the below command.
+
+```
+cd pact_docker/
+docker-compose up -d
+```
+
+To publish the pacts to pacts broker, run the below command.
+
+```
+./mvnw clean install pact:publish -Dpact.broker.url=http://localhost:8500 -Ppact-consumer
+```
+
+To verify the results, run the below command.
+
+```
+ ./mvnw test -Dpact.verifier.publishResults='true' -Dpactbroker.host=localhost -Dpactbroker.port=8500 -Ppact-producer
+```
+
+Now you can access the pact broker to see if the tests are successful at http://localhost:8500/.
+
+![Auth Pact Broker](static/auth_pactbroker.png?raw=true)
+
 ### Exiting the application
 
 To exit the application, just press `Ctrl+C`.
