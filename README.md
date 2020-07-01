@@ -3,7 +3,7 @@
 # Secure REST API with OAuth2 and Authorization Service
 
 *This project is part of the 'IBM Cloud Native Reference Architecture' suite, available at
-https://github.com/ibm-garage-ref-storefront/refarch-cloudnative-storefront*
+https://cloudnativereference.dev/*
 
 ## Table of Contents
 
