@@ -20,7 +20,7 @@ https://cloudnativereference.dev/*
 
 ## Introduction
 
-This project demonstrates how to authenticate the API user as well as enable OAuth 2.0 authorization for all OAuth protected APIs in the [Storefront](https://github.com/ibm-garage-ref-storefront/refarch-cloudnative-storefront) reference application.
+This project demonstrates how to authenticate the API user as well as enable OAuth 2.0 authorization for all OAuth protected APIs in the [Storefront](https://github.com/ibm-garage-ref-storefront/docs) reference application.
 
 #### Interaction with Identity Provider (Auth Microservice)
 
