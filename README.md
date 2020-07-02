@@ -55,7 +55,7 @@ The Storefront reference application supports the following clients and grant ty
 
 - The [Storefront UI](https://github.com/ibm-garage-ref-storefront/storefront-ui) is using client ID `bluecomputeweb` and client secret `bluecomputewebs3cret` supporting OAuth 2.0 Password grant type.
 
-The BlueCompute application has scope, `blue`.
+The Storefront application has scope, `blue`.
 
 ## Pre-requisites:
 
