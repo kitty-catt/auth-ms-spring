@@ -97,4 +97,3 @@ spec:
     type: NodePort
   stack: java-spring-boot2
   version: 1.0.0
-  
