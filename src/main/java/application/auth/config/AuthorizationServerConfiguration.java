@@ -28,7 +28,7 @@ import java.util.Map;
 
 @Configuration
 @EnableAuthorizationServer
-public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
 
     @Value("${access_token.validity_period:3600}")
     int accessTokenValiditySeconds = 3600;
@@ -40,7 +40,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
     @Autowired
-    private JwtConfig securityConfig;
+    private JwtConfiguration securityConfig;
 
     @Bean
     public JwtAccessTokenConverter jwtTokenEnhancer() {

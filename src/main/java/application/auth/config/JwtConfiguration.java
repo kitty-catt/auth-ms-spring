@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 @EnableConfigurationProperties
 @ConfigurationProperties(prefix = "jwt")
-public class JwtConfig {
+public class JwtConfiguration {
 
     private String sharedSecret;
 
