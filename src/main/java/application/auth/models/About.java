@@ -1,51 +1,24 @@
 package application.auth.models;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class About {
-	
-	private String name;
 
-	private String parentRepo;
+    @Getter @Setter private String name;
 
-	private String description;
-	
-	public About() {
-		
-	}
-	
-	public About(String name, String parentRepo, String description) {
-		this.setName(name);
-		this.setParentRepo(parentRepo);
-		this.setDescription(description);
-	}
+    @Getter @Setter private String parentRepo;
 
-	public String getName() {
-		return name;
-	}
+    @Getter @Setter private String description;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public About(String name, String parentRepo, String description) {
+        this.setName(name);
+        this.setParentRepo(parentRepo);
+        this.setDescription(description);
+    }
 
-	public String getParentRepo() {
-		return parentRepo;
-	}
-
-	public void setParentRepo(String parentRepo) {
-		this.parentRepo = parentRepo;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	@Override
-	public String toString() {
-		return "About [name=" + name + ", parentRepo=" + parentRepo + ", description=" + description + "]";
-	}
-	
-
+    @Override
+    public String toString() {
+        return "About [name=" + name + ", parentRepo=" + parentRepo + ", description=" + description + "]";
+    }
 }
