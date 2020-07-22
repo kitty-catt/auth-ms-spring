@@ -79,7 +79,7 @@ public class AuthController {
     @RequestMapping(value = "/customer", method = RequestMethod.GET)
     @ResponseBody
     ResponseEntity<?> getCustomerDetails() {
-        logger.debug("POST /customer");
+        logger.debug("GET /customer");
 
         Authentication authentication = customerAuthenticationProvider.getAuthentication();
         String name = authentication.getName();
