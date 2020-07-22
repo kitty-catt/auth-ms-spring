@@ -26,24 +26,24 @@ public class CustomerAuthenticationProvider implements AuthenticationProvider {
     @Value("${customerService.url}")
     private String custResourceUrl;
 
+    private Authentication authentication;
+
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String name = authentication.getName();
         String password = authentication.getCredentials().toString();
-
+        this.authentication = authentication;
         if (name.equals("user") && password.equals("password")) {
             // TEST
             return new UsernamePasswordAuthenticationToken(name, password, Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")));
         }
 
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<Customer[]> responseEntity = restTemplate.getForEntity(custResourceUrl + "?username={name}", Customer[].class, name);
-
-        Customer[] customer_array = responseEntity.getBody();
+        ResponseEntity<Customer> responseEntity = restTemplate.getForEntity(custResourceUrl + "?username={name}", Customer.class, name);
+        Customer customer_array = responseEntity.getBody();
 
         final List<Customer> custList = new ArrayList<Customer>();
         Collections.addAll(custList, customer_array);
-
         logger.debug("customer service returned:" + custList);
 
         if (custList == null || custList.isEmpty()) {
@@ -61,7 +61,7 @@ public class CustomerAuthenticationProvider implements AuthenticationProvider {
         }
 
         // authentication was valid
-        return new UsernamePasswordAuthenticationToken(cust.getCustomerId(), password, Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")));
+        return new UsernamePasswordAuthenticationToken(cust.get_id(), password, Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")));
     }
 
     @Override
@@ -70,4 +70,11 @@ public class CustomerAuthenticationProvider implements AuthenticationProvider {
                 UsernamePasswordAuthenticationToken.class);
     }
 
+    public Authentication getAuthentication() {
+        return authentication;
+    }
+
+    public void setAuthentication(Authentication authentication) {
+        this.authentication = authentication;
+    }
 }
