@@ -21,11 +21,9 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/")
 public class AuthController {
 
+    private static Logger logger = LoggerFactory.getLogger(AuthController.class);
     @Value("${customerService.url}")
     private String custResourceUrl;
-
-    private static Logger logger = LoggerFactory.getLogger(AuthController.class);
-
     @Autowired
     private CustomerAuthenticationProvider customerAuthenticationProvider;
 
