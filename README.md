@@ -230,3 +230,4 @@ Closing down development environment.
 You have successfully deployed and tested the Auth Microservice in local Docker Containers using Appsody.
 
 To see the Auth application working in a more complex microservices use case, checkout our Microservice Reference Architecture Application [here](https://github.com/ibm-garage-ref-storefront/docs).
+
