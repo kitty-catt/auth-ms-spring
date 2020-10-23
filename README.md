@@ -1,4 +1,4 @@
-###### auth-ms-spring
+##### auth-ms-spring
 
 # Secure REST API with OAuth2 and Authorization Service
 
