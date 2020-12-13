@@ -22,6 +22,11 @@
     <pluginManagement>
         <plugins>
             <plugin>
+              <groupId>com.github.spotbugs</groupId>
+              <artifactId>spotbugs-maven-plugin</artifactId>
+              <version>4.1.4</version>
+            </plugin>		
+            <plugin>
               <groupId>org.owasp</groupId>
               <artifactId>dependency-check-maven</artifactId>
               <version>6.0.3</version>
@@ -207,6 +212,11 @@
 
     <reporting>
       <plugins>
+	<plugin>
+		<groupId>com.github.spotbugs</groupId>
+		<artifactId>spotbugs-maven-plugin</artifactId>
+		<version>4.1.4</version>
+	</plugin>		      
         <plugin>
           <groupId>org.owasp</groupId>
           <artifactId>dependency-check-maven</artifactId>
